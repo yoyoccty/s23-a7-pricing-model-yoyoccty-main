@@ -99,7 +99,7 @@ public class RangePricingApplication {
       System.out.println("=============================");
     }
 
-    //business.printShortInfo();
+    
 
     SupplierDirectory sd = business.getSupplierDirectory();
     Supplier randomSupplier = sd.pickRandomSupplier();
