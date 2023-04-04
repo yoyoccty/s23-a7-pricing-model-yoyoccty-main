@@ -69,7 +69,7 @@ public class RangePricingApplication {
     // For each Customer add 5 to 15 Orders with 1 to 5 Items to each
     for (int i = 0; i < business.getCustomerDirectory().getCustomerList().size(); i++){ // all customers
       CustomerProfile selectedCustomer = business.getCustomerDirectory().findCustomer(Integer.toString(i));
-      selectedCustomer.setOrders(new ArrayList<Order>());
+      selectedCustomer.setOrders(new ArrayList<Order>()); //workaround 
       System.out.println("Customer ID: " + selectedCustomer.getCustomerId());
       Random random = new Random();
       int randomNumber = random.nextInt(11) + 5;
