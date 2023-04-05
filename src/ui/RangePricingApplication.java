@@ -70,7 +70,7 @@ public class RangePricingApplication {
     for (int i = 0; i < business.getCustomerDirectory().getCustomerList().size(); i++){ // all customers
       CustomerProfile selectedCustomer = business.getCustomerDirectory().findCustomer(Integer.toString(i));
       selectedCustomer.setOrders(new ArrayList<Order>()); //workaround 
-      System.out.println("Customer ID: " + selectedCustomer.getCustomerId());
+      
       Random random = new Random();
       int randomNumber = random.nextInt(11) + 5;
       for (int j = 0; j < randomNumber; j++){ // 5 to 15 orders
@@ -80,14 +80,14 @@ public class RangePricingApplication {
           order.newOrderItem(new Product("Product"+k, 10, 20, 30), 10, 2);
         }
         //selectedCustomer.addCustomerOrder(order); 
-        System.out.println("Total Order: " + selectedCustomer.getTotalOrder());
+        //System.out.println("Total Order: " + selectedCustomer.getTotalOrder());
       }
-      System.out.println("Number of orders: " + selectedCustomer.getOrder().size());
+      //System.out.println("Number of orders: " + selectedCustomer.getOrder().size());
     }
-    System.out.println("========================DSADSAD=====");
+    //System.out.println("========================DSADSAD=====");
 
-    System.out.println(business.getCustomerDirectory().getCustomerList().size());
-    System.out.println("===========================DSDSAD==");
+    //System.out.println(business.getCustomerDirectory().getCustomerList().size());
+    //System.out.println("===========================DSDSAD==");
 
     //report
     for (int i = 0; i < business.getCustomerDirectory().getCustomerList().size(); i++){
@@ -96,16 +96,19 @@ public class RangePricingApplication {
       System.out.println("Total Order: " + customer.getTotalOrder());
       System.out.println("Number of orders: " + customer.getOrder().size());
       System.out.println("Total number of items: " + customer.getTotalNumberOfItems());
+      
+      // average order value
+      System.out.println("Average order value: " + customer.getAverageOrderValue());
+      // average item value
+      System.out.println("Average item value: " + customer.getAverageItemValue());
       System.out.println("=============================");
+      
+
     }
 
     
 
-    SupplierDirectory sd = business.getSupplierDirectory();
-    Supplier randomSupplier = sd.pickRandomSupplier();
-    ProductCatalog pd = randomSupplier.getProductCatalog();
-    ProductsReport myFirstReport = pd.generatProductPerformanceReport();
-    myFirstReport.printProductReport();
+  
 
 
 

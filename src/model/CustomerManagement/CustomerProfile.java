@@ -122,4 +122,13 @@ public class CustomerProfile {
         }
         return sum;
     }
+
+    public String getAverageOrderValue() {
+        return String.format("%.2f", (double)getTotalOrder()/orders.size());
+    }
+
+    public String getAverageItemValue() {
+        return String.format("%.2f", (double)getTotalOrder()/getTotalNumberOfItems());
+        
+    }
 }
